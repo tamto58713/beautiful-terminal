@@ -17,5 +17,6 @@ After you were moving it in '/home', let's open terminal and use command 'source
 
 (if you can't see file '.bashrc'. you can press 'Ctrl + H' to see it)
 
-## Thank you!!!!
+## Thank you !!!!
+    Author: Tam To Tran
 
