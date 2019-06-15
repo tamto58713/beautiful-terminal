@@ -124,8 +124,7 @@ parse_git_branch() {
 git_branch() {
 	currentBranch=$(parse_git_branch)
 	br="${currentBranch//[[:space:]]/}"
-	lenbr=${#br}
-	lenbr=$br-1
+	lenbr=${#br}-2
 	br="${br:1:lenbr}"
 	echo $br
 }
