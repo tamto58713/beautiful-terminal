@@ -119,26 +119,46 @@ fi
 # Author: Tam To Tran (06/07/2000) -- Sat Jun 15 01:03 AM GMT+7 Saigon  
 parse_git_branch() {
 
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+git_branch() {
+	currentBranch=$(parse_git_branch)
+	br="${currentBranch//[[:space:]]/}"
+	lenbr=${#br}
+	lenbr=$br-1
+	br="${br:1:lenbr}"
+	echo $br
+}
+echo $(git_branch)
 gitBranch(){
-currentBranch=$(parse_git_branch)
+	currentBranch=$(parse_git_branch)
 	a="${currentBranch//[[:space:]]/}"
 	len=${#a};
 	git=""
 	if (( $len > 0 ))
 	then
-		git="git:"
+		git="git: ("
+	fi
+	echo $git
+}
+gitBranch2(){
+	currentBranch=$(parse_git_branch)
+	a="${currentBranch//[[:space:]]/}"
+	len=${#a};
+	git=""
+	if (( $len > 0 ))
+	then
+		git=")"
 	fi
 	echo $git
 }
 direc() {
 	directory=$(pwd)
 	directory="${directory##*/}"
-	echo $directory
+	echo $directory 
 }
 
 #export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$git\$(parse_git_branch)\[\033[00m\] $ "
-export PS1=" \[\033[1;93m\]➙➤ \[\033[1;97m\]Hello!!! \[\033[1;95m\]➫ \[\033[1;96m\]\$(direc) \[\033[0;35m\]\$(gitBranch)\[\033[0;32m\]\$(parse_git_branch)\[\033[00m\]  "
+export PS1=" \[\033[1;93m\]➙➤ \[\033[1;97m\]Hello!!! \[\033[1;95m\]➫ \[\033[1;96m\]\$(direc) \[\033[1;95m\]\$(gitBranch)\[\033[0;92m\]\$(git_branch)\[\033[10;95m\]\$(gitBranch2) \[\033[00m\] "
 
 
