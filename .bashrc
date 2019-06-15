@@ -128,7 +128,6 @@ git_branch() {
 	br="${br:1:lenbr}"
 	echo $br
 }
-echo $(git_branch)
 gitBranch(){
 	currentBranch=$(parse_git_branch)
 	a="${currentBranch//[[:space:]]/}"
