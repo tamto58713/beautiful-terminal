@@ -157,6 +157,6 @@ direc() {
 }
 
 #export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$git\$(parse_git_branch)\[\033[00m\] $ "
-export PS1=" \[\033[1;93m\]➙➤ \[\033[1;97m\]GOOD LUCK!!! \[\033[1;95m\]➫ \[\033[1;96m\]\$(direc) \[\033[1;95m\]\$(gitBranch)\[\033[0;92m\]\$(git_branch)\[\033[10;95m\]\$(gitBranch2) \[\033[00m\] "
+export PS1=" \[\033[1;93m\]➙➤ \[\033[1;97m\]IN GOD WE TRUST! \[\033[1;95m\]➫ \[\033[1;96m\]\$(direc) \[\033[1;95m\]\$(gitBranch)\[\033[0;92m\]\$(git_branch)\[\033[10;95m\]\$(gitBranch2) \[\033[00m\] "
 
 
